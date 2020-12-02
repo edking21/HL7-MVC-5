@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "Vidly\Vidly.csproj", "{295707EF-F8B0-4480-8538-B47844A263B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7-MVC-5", "Vidly\HL7-MVC-5.csproj", "{295707EF-F8B0-4480-8538-B47844A263B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,5 +21,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22C63058-BEA5-41EC-8917-FAF6BFA3C339}
 	EndGlobalSection
 EndGlobal
