@@ -1,0 +1,32 @@
+﻿@model HL7MVC5.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*
+    This is a comment
+    On multiple lines    
+*@
+
+
+@{
+    var className = Model.Patients.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Patients.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <ul>
+        @foreach (var patient in Model.Patients)
+        {
+            <li>@patient.Name</li>
+        }
+    </ul>
+}
+
