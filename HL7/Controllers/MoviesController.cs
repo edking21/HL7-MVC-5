@@ -10,7 +10,7 @@ namespace HL7MVC5.Controllers
 {
     public class MoviesController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public MoviesController()
         {

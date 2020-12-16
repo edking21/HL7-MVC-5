@@ -24,9 +24,14 @@ namespace HL7MVC5.ViewModels
         public DateTime? ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]
-        [Range(1, 20)]
+        [Range(0, 20)]
         [Required]
         public byte? NumberInStock { get; set; }
+
+        [Display(Name = "Number Available")]
+        [Range(0, 20)]
+        [Required]
+        public byte? NumberAvailable { get; set; }
 
 
         public string Title
@@ -48,6 +53,7 @@ namespace HL7MVC5.ViewModels
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
             NumberInStock = movie.NumberInStock;
+            NumberAvailable = movie.NumberAvailable;
             GenreId = movie.GenreId;
         }
     }

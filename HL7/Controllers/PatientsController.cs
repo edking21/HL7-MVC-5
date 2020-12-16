@@ -8,7 +8,7 @@ namespace HL7MVC5.Controllers
 {
     public class PatientsController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public PatientsController()
         {
@@ -65,7 +65,8 @@ namespace HL7MVC5.Controllers
 
         public ViewResult Index()
         {
-            return View();
+            var patients = _context.Patients.Include(c => c.MembershipType).ToList();
+            return View(patients);
         }
 
         public ActionResult Details(int id)

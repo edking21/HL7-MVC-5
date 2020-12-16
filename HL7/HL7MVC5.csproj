@@ -214,34 +214,46 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604040445246_InitialModel.cs" />
-    <Compile Include="Migrations\201604040445246_InitialModel.Designer.cs">
-      <DependentUpon>201604040445246_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\202012152134186_InitialModel.cs" />
+    <Compile Include="Migrations\202012152134186_InitialModel.Designer.cs">
+      <DependentUpon>202012152134186_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604050143242_PopulateMembershipTypes.cs" />
-    <Compile Include="Migrations\201604050143242_PopulateMembershipTypes.Designer.cs">
-      <DependentUpon>201604050143242_PopulateMembershipTypes.cs</DependentUpon>
+    <Compile Include="Migrations\202012152138485_seedUsers.cs" />
+    <Compile Include="Migrations\202012152138485_seedUsers.Designer.cs">
+      <DependentUpon>202012152138485_seedUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012021453336_removeDrivingLicenseRequired.cs" />
-    <Compile Include="Migrations\202012021453336_removeDrivingLicenseRequired.Designer.cs">
-      <DependentUpon>202012021453336_removeDrivingLicenseRequired.cs</DependentUpon>
+    <Compile Include="Migrations\202012161809074_AddMembershipType.cs" />
+    <Compile Include="Migrations\202012161809074_AddMembershipType.Designer.cs">
+      <DependentUpon>202012161809074_AddMembershipType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012021459388_removePhoneRequired.cs" />
-    <Compile Include="Migrations\202012021459388_removePhoneRequired.Designer.cs">
-      <DependentUpon>202012021459388_removePhoneRequired.cs</DependentUpon>
+    <Compile Include="Migrations\202012161819480_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202012161819480_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>202012161819480_AddNameToMembershipType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012021500156_seedUsers.cs" />
-    <Compile Include="Migrations\202012021500156_seedUsers.Designer.cs">
-      <DependentUpon>202012021500156_seedUsers.cs</DependentUpon>
+    <Compile Include="Migrations\202012161821135_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\202012161821135_SetNameOfMembershipTypes.Designer.cs">
+      <DependentUpon>202012161821135_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012161826522_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202012161826522_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202012161826522_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012161830407_SetNameOfMembershipTypes1.cs" />
+    <Compile Include="Migrations\202012161830407_SetNameOfMembershipTypes1.Designer.cs">
+      <DependentUpon>202012161830407_SetNameOfMembershipTypes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012161835514_PopulateGenres.cs" />
+    <Compile Include="Migrations\202012161835514_PopulateGenres.Designer.cs">
+      <DependentUpon>202012161835514_PopulateGenres.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Rental.cs" />
@@ -382,6 +394,18 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="PDF\Additional+Reading.pdf" />
+    <Content Include="PDF\AJAX.pdf" />
+    <Content Include="PDF\ASP.NET+MVC+Fundamentals+Cheat+Sheet .pdf" />
+    <Content Include="PDF\Authentication+and+Authorization+Cheat+Sheet.pdf" />
+    <Content Include="PDF\Building+Forms+Cheat+Sheet.pdf" />
+    <Content Include="PDF\Building+Web+APIs+Cheat+Sheet.pdf" />
+    <Content Include="PDF\Client-side+Development+Cheat+Sheet.pdf" />
+    <Content Include="PDF\Data+Caching.pdf" />
+    <Content Include="PDF\Entity+Framework+Cheat+Sheet.pdf" />
+    <Content Include="PDF\Implementing+Validation+Cheat+Sheet.pdf" />
+    <Content Include="PDF\jQuery.pdf" />
+    <Content Include="PDF\Performance+Optimization+Cheat+Sheet.pdf" />
     <None Include="Properties\PublishProfiles\GoDaddyProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Testing.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -503,10 +527,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <None Include="Views\Customers\Details.cshtml" />
-    <None Include="Views\Customers\Index.cshtml" />
+    <None Include="Views\Patients\Details.cshtml" />
+    <None Include="Views\Patients\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Patients\PatientForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
     <None Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
@@ -526,20 +550,29 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604040445246_InitialModel.resx">
-      <DependentUpon>201604040445246_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012152134186_InitialModel.resx">
+      <DependentUpon>202012152134186_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604050143242_PopulateMembershipTypes.resx">
-      <DependentUpon>201604050143242_PopulateMembershipTypes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012152138485_seedUsers.resx">
+      <DependentUpon>202012152138485_seedUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012021453336_removeDrivingLicenseRequired.resx">
-      <DependentUpon>202012021453336_removeDrivingLicenseRequired.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012161809074_AddMembershipType.resx">
+      <DependentUpon>202012161809074_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012021459388_removePhoneRequired.resx">
-      <DependentUpon>202012021459388_removePhoneRequired.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012161819480_AddNameToMembershipType.resx">
+      <DependentUpon>202012161819480_AddNameToMembershipType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012021500156_seedUsers.resx">
-      <DependentUpon>202012021500156_seedUsers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012161821135_SetNameOfMembershipTypes.resx">
+      <DependentUpon>202012161821135_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161826522_PopulateMembershipTypes.resx">
+      <DependentUpon>202012161826522_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161830407_SetNameOfMembershipTypes1.resx">
+      <DependentUpon>202012161830407_SetNameOfMembershipTypes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161835514_PopulateGenres.resx">
+      <DependentUpon>202012161835514_PopulateGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
