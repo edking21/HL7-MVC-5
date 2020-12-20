@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HL7MVC5.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace HL7MVC5.Dtos
@@ -12,6 +13,7 @@ namespace HL7MVC5.Dtos
         public string Name { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
+        public AddressMaster AddressMaster { get; set; }
 
         public byte MembershipTypeId { get; set; }
 

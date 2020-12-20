@@ -1,40 +1,50 @@
 ﻿@model HL7MVC5.ViewModels.PatientFormViewModel
 @{
-    ViewBag.Title = "New";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "New";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>New Patient</h2>
 
 @using (Html.BeginForm("Save", "Patients"))
 {
-    @Html.ValidationSummary(true, "Please fix the following errors.")
-    <div class="form-group">
-        @Html.LabelFor(m => m.Patient.Name)
-        @Html.TextBoxFor(m => m.Patient.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Patient.Name)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Patient.MembershipTypeId)
-        @Html.DropDownListFor(m => m.Patient.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Patient.MembershipTypeId)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Patient.Birthdate)
-        @Html.TextBoxFor(m => m.Patient.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Patient.Birthdate)
-    </div>
-    <div class="checkbox">
-        <label>
-            @Html.CheckBoxFor(m => m.Patient.IsSubscribedToNewsletter) Subscribed to Newsletter?
-        </label>
-    </div>
-    @Html.HiddenFor(m => m.Patient.Id)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>    
+  @Html.ValidationSummary(true, "Please fix the following errors.")
+  <div class="form-group">
+    @Html.LabelFor(m => m.Patient.Name)
+    @Html.TextBoxFor(m => m.Patient.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Patient.Name)
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(m => m.Patient.MembershipTypeId)
+    @Html.DropDownListFor(m => m.Patient.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Patient.MembershipTypeId)
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(m => m.Patient.Birthdate)
+    @Html.TextBoxFor(m => m.Patient.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Patient.Birthdate)
+  </div>
+  <div class="form-group">
+  @Html.LabelFor(m => m.Patient.AddressMaster.Line)
+  @Html.TextBoxFor(m => m.Patient.AddressMaster.Line, new { @class = "form-control" })
+  @Html.ValidationMessageFor(m => m.Patient.AddressMaster.Line)
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(m => m.Patient.AddressMaster.City)
+    @Html.TextBoxFor(m => m.Patient.AddressMaster.City, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Patient.AddressMaster.City)
+  </div>
+  <div class="checkbox">
+    <label>
+      @Html.CheckBoxFor(m => m.Patient.IsSubscribedToNewsletter) Subscribed to Newsletter?
+    </label>
+  </div>
+  @Html.HiddenFor(m => m.Patient.Id)
+  @Html.AntiForgeryToken()
+  <button type="submit" class="btn btn-primary">Save</button>
 }
 
 @section scripts
 {
-    @Scripts.Render("~/bundles/jqueryval")
+  @Scripts.Render("~/bundles/jqueryval")
 }

@@ -25,7 +25,10 @@ namespace HL7MVC5.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new PatientFormViewModel
             {
-                Patient = new Patient(),
+                Patient = new PatientMaster
+                {
+                    AddressMaster = new AddressMaster()
+                },           
                 MembershipTypes = membershipTypes
             };
 
@@ -34,7 +37,7 @@ namespace HL7MVC5.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Patient patient)
+        public ActionResult Save(PatientMaster patient)
         {
             if (!ModelState.IsValid)
             {
@@ -66,6 +69,7 @@ namespace HL7MVC5.Controllers
         public ViewResult Index()
         {
             var patients = _context.Patients.Include(c => c.MembershipType).ToList();
+            patients = _context.Patients.Include(c => c.AddressMaster).ToList();
             return View(patients);
         }
 

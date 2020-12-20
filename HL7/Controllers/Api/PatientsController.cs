@@ -11,7 +11,7 @@ namespace HL7MVC5.Controllers.Api
 {
     public class PatientsController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public PatientsController()
         {
@@ -22,14 +22,15 @@ namespace HL7MVC5.Controllers.Api
         public IEnumerable<PatientDto> GetPatients(string query = null)
         {
             var patientsQuery = _context.Patients
-                .Include(c => c.MembershipType);
+                .Include(c => c.MembershipType)
+                .Include(c=> c.AddressMaster);
 
             if (!String.IsNullOrWhiteSpace(query))
                 patientsQuery = patientsQuery.Where(c => c.Name.Contains(query));
 
             return patientsQuery
                 .ToList()
-                .Select(Mapper.Map<Patient, PatientDto>);
+                .Select(Mapper.Map<PatientMaster, PatientDto>);
             
         }
 
@@ -41,7 +42,7 @@ namespace HL7MVC5.Controllers.Api
             if (patient == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<Patient, PatientDto>(patient));
+            return Ok(Mapper.Map<PatientMaster, PatientDto>(patient));
         }
 
         // POST /api/patients
@@ -51,7 +52,7 @@ namespace HL7MVC5.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var patient = Mapper.Map<PatientDto, Patient>(patientDto);
+            var patient = Mapper.Map<PatientDto, PatientMaster>(patientDto);
             _context.Patients.Add(patient);
             _context.SaveChanges();
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HL7MVC5.Models.Patient>
+﻿@model IEnumerable<HL7MVC5.Models.PatientMaster>
 @*
   Note: I've set the model for this view to IEnumerable<Patient>.
   This is a simple interface implemented by the list class. Since
@@ -20,13 +20,14 @@
   @Html.ActionLink("New Patient", "New", "Patients", null, new { @class = "btn btn-primary" })
 </p>
 
-<table id="patients" class="table table-bordered table-hover">
+<table id="patients" class="table table-responsive-sm table-bordered table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Date of Birth</th>
+      <th>Address</th>
       <th>Membership Type</th>
-      <th>Delete</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody></tbody>
@@ -45,7 +46,7 @@
           {
             data: "name",
             render: function (data, type, patient) {
-              return "<a href='/patients/edit/" + patient.id + "'>" + patient.name + "</a>";
+              return "<a style='height:14px; overflow:auto' href='/patients/edit/" + patient.id + "'>" + patient.name + "</a>";
             }
           },
           {
@@ -53,8 +54,17 @@
             render: function (data) {
               var date = new Date(data);
               var month = date.getMonth() + 1;
-              return (month.toString().length > 1 ? month : "0" + month) + "/" + date.getDate() + "/" + date.getFullYear();
-
+              return "<span style='height:14px; overflow:auto'>" + (month.toString().length > 1 ? month : "0" + month) + "/" + date.getDate() + "/" + date.getFullYear() + "<\span>"; 
+            }
+          },
+          {
+            data: "name",
+            render: function (data, type, patient) {
+              return "<span style='line-height:0px; overflow:auto'>" +
+                        patient.addressMaster.line + "<\p><p>" +
+                        patient.addressMaster.city + ", " +
+                        patient.addressMaster.state + " " +
+                        patient.addressMaster.postalCode +  "<\span>"
             }
           },
           {
@@ -63,7 +73,8 @@
           {
             data: "id",
             render: function (data) {
-              return "<button class='btn-link js-delete' data-patient-id=" + data + ">Delete</button>";
+              //return "<button btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+              return "<button class='btn btn-outline-info js-delete' data-patient-id=" + data + ">Delete</button>";
             }
           }
         ]

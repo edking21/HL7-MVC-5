@@ -7,7 +7,7 @@ namespace HL7MVC5.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var patient = (Patient)validationContext.ObjectInstance;
+            var patient = (PatientMaster)validationContext.ObjectInstance;
 
             if (patient.MembershipTypeId == MembershipType.Unknown || 
                 patient.MembershipTypeId == MembershipType.PayAsYouGo)

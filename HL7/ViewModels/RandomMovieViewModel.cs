@@ -9,6 +9,6 @@ namespace HL7MVC5.ViewModels
     public class RandomMovieViewModel
     {
         public Movie Movie { get; set; }
-        public List<Patient> Patients { get; set; }
+        public List<PatientMaster> Patients { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace HL7MVC5.Models
         public int Id { get; set; }
 
         [Required]
-        public Patient Patient { get; set; }
+        public PatientMaster Patient { get; set; }
 
         [Required]
         public Movie Movie { get; set; }

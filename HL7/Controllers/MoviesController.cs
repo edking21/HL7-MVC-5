@@ -76,10 +76,10 @@ namespace HL7MVC5.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
-            var patients = new List<Patient>
+            var patients = new List<PatientMaster>
             {
-                new Patient { Name = "Patient 1" },
-                new Patient { Name = "Patient 2" }
+                new PatientMaster { Name = "Patient 1" },
+                new PatientMaster { Name = "Patient 2" }
             };
 
             var viewModel = new RandomMovieViewModel

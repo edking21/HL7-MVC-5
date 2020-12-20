@@ -1,5 +1,6 @@
 namespace HL7MVC5.Migrations
 {
+    using HL7MVC5.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,20 +13,17 @@ namespace HL7MVC5.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HL7MVC5.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //context.Patients.AddOrUpdate(a => a.Gender,
+            //     new PatientMaster
+            //     {
+            //         Gender = "F",
+            //         Name = "Stevie Nicks",
+            //         MembershipTypeId = 1,
+            //         Birthdate = new DateTime(1964, 07, 03),
+            //         AddressMaster = new AddressMaster { Line = "100 Main", City = "Miami", State = "FL", PostalCode = "12345" }
+            //     });
         }
     }
 }
